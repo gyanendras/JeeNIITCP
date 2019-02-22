@@ -22,7 +22,7 @@ public class Department {
 	@Column(name = "location_id")
 	Integer location_id;
 	
-	@OneToMany
+	
 	@JoinColumn(name = "department_id")
 	List<Employee> employees;
     
@@ -32,6 +32,7 @@ public class Department {
 	public void setDepartment_id(int department_id) {
 		this.department_id = department_id;
 	}
+
 	public List<Employee> getEmployees() {
 		return employees;
 	}

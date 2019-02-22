@@ -1,16 +1,8 @@
-/Employee.hbm.xml
-/META-INF/
-/SlidingNumber.class
-/ant-javafx.jar
-/classlist
-/com/
-/ct.sym
 /deploy.jar
 /deploy/
 /fontconfig.bfc
 /fontconfig.properties.src
 /fonts/
-/hibernate.cfg.xml
 /java.jnlp.jar
 /javacpl.cpl
 /javafx-swt.jar
@@ -34,5 +26,5 @@
 /security/
 /server/
 /src.zip
-/tzdb.dat
-/tzmappings
+/META-INF/
+/com/

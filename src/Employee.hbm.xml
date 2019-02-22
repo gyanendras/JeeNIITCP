@@ -21,7 +21,6 @@
       <property name = "hire_date" column = "hire_date" type = "date"/>
       <property name = "job_id" column = "job_id" type = "string"/>
       <property name = "department_id" column = "department_id" type = "long"/>
-      
-      
+ 
    </class>
 </hibernate-mapping>

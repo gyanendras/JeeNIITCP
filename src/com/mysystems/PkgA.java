@@ -6,7 +6,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 
-public class PkgA {
+public class PkgA implements Comparable<PkgA> {
 private Integer aa;
 protected Integer ab;
 Object Ob;
@@ -35,4 +35,13 @@ public static void main(String[] args){
 	
 	
 }
+
+@Override
+public int compareTo(PkgA o) {
+	// TODO Auto-generated method stub
+	return this.aa.compareTo(o.aa);
+}
+
+
+
 }

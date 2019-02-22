@@ -121,6 +121,7 @@ public class DepartmentDAO {
 		 cq.where(p5);
 	 
 		 cq.select(cb.max(LcnEx));
+		 ArrayList ar;
 		 
 		 List<Department> ls = em.createQuery(cq).getResultList();
 		 
@@ -181,6 +182,8 @@ public class DepartmentDAO {
 		 EntityType<Department> Dept_ = m.entity(Department.class);
 		 Expression ex = root.get(Dept_.getSingularAttribute("department_id"));
 		 Expression LcnEx = root.get(Dept_.getSingularAttribute("location_id"));
+		 
+		 
 		 
 		 ListJoin<Department, Employee> o =  
 				 root.join(Dept_.getDeclaredList("employees",Employee.class));
