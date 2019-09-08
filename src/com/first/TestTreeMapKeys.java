@@ -1,5 +1,7 @@
 package com.first;
 
+import java.util.Collections;
+import java.util.List;
 import java.util.TreeMap;
 
 public class TestTreeMapKeys{
@@ -13,4 +15,7 @@ public static void main(String ar[]){
     System.out.println(tree.ceilingKey(3));
     System.out.println(tree.floorKey(0));
     System.out.println(tree.lowerKey(1));
+
+    List list;
+	Collections.sort(list);
 }}

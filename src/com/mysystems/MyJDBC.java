@@ -1,6 +1,7 @@
 package com.mysystems;
 
 import java.sql.CallableStatement;
+
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
 import java.sql.DriverManager;
@@ -13,28 +14,29 @@ import java.sql.Types;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
-
+import com.mysystems.domain.Employee;
 
 import java.util.Date;
 
 public class MyJDBC {
-	public void runJDBC(){  
+		public void runJDBC(){  
 		Connection con=null;
 		try{  
 		Class.forName("com.mysql.cj.jdbc.Driver");  
 		con=DriverManager.getConnection(  
 		"jdbc:mysql://localhost:3306/hr","root","full2work");  
-		/*
+		
 		Statement stmt=con.createStatement();  
-		ResultSet rs=stmt.executeQuery("select * from employees  ");
+		ResultSet rs=stmt.executeQuery("select * from employees");
+		
 		ResultSetMetaData rsm = rs.getMetaData();
 		rsm.getColumnCount();
 		rsm.getColumnName(1);
 		rsm.getTableName(1);
-		
-		Statement stmt2=con.createStatement(); 
+				Statement stmt2=con.createStatement(); 
 		ResultSet rs1 =stmt2.executeQuery("select * from locations  "); 
 		while(rs1.next())  {
+					
 			System.out.println(
 					rs1.getInt(1)+"  "
 			+rs1.getString(2)+"  "+
@@ -51,7 +53,7 @@ public class MyJDBC {
 		Statement stmt3=con.createStatement(); 
 		int count =stmt3.executeUpdate(x); 
 con.commit();
-		*/
+		
 			
 		con.setAutoCommit(false);
 						
@@ -115,17 +117,19 @@ con.commit();
 	}
 	
 	public void runPrepStmt() {	
-		String sql = "select * from employees where hire_date between ? and ? ";	
+		String sql = "select * from employees where hire_date between ? and ? ";
+		
 		try(
 				Connection con = getConnection();
+				con.setAutoCommit(false);
 				PreparedStatement ps = con.prepareStatement(sql);
 				) {
      		Calendar cal = new GregorianCalendar();
 			cal.set(1978,1,1);
 			
-			//Date dt = cal.getTime();
+			Date dt = cal.getTime();
 			java.sql.Date dtSql = new 	java.sql.Date(cal.getTimeInMillis());
-			cal.set(1991,1,1);
+			//cal.set(1991,1,1);
 			//Date dt1 = cal.getTime();
 		
 			java.sql.Date dt1Sql = new 	java.sql.Date(cal.getTimeInMillis());
@@ -133,6 +137,8 @@ con.commit();
 			ps.setDate(2, dt1Sql);
 	
 			ResultSet rs = ps.executeQuery();
+			ps.executeUpdate();
+			con.commit();
 			while(rs.next())  {
 				System.out.println(rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3));
 			}
@@ -141,6 +147,7 @@ con.commit();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			con.rollback();
 		}  
 	}
   
@@ -166,12 +173,15 @@ con.commit();
 					
 					ResultSet rs = cstmt.getResultSet();
 					
-					//cstmt.getMoreResults();
+					
 					
 					while(rs.next())
 					{
 						System.out.println(rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3));
 					}
+					
+					//cstmt.getMoreResults();
+					//ResultSet rs = cstmt.getResultSet();
 					
 					
 					String s=cstmt.getString(3);

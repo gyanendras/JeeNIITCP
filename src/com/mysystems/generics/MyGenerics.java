@@ -11,6 +11,18 @@ public class MyGenerics {
 		myCol.add("Name2");
 		List<?> myList = myCol;
 		Object s = myList.get(0);
+		Vehicle v1 = new Vehicle();
+		Vehicle v2 = new Vehicle();
+		
+		List<Vehicle> vehList = new ArrayList<Vehicle>();
+		
+		List<? extends Vehicle> vehList1 =new ArrayList<Car>();
+		
+		
+		Car c1 = new Car();
+		vehList.add(c1);
+		
+		
 	}
 	
 	
@@ -22,5 +34,13 @@ public class MyGenerics {
 	    }
 	}
 	
+class Vehicle{
+	
+	
+}
 
+class Car extends Vehicle{
+	
+}
+	
 }

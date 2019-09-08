@@ -3,6 +3,7 @@ package com.first;
 public class A {
 
 	public static int j;
+	int k=10;
 	
 	static {
 		System.out.println("In A static");

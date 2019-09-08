@@ -15,7 +15,7 @@ import java.io.Writer;
 
 public class MyIO {
 	public void fileio() {
-		File f = new File("{myfile.txt");
+		File f = new File("myfile.txt");
 		try (FileInputStream fis = new FileInputStream(f)) {
 			int data = fis.read();
 			while (data != -1) {
@@ -31,7 +31,7 @@ public class MyIO {
 
 	}
 	
-	public void charFileIO() throws IOException {
+	public void charFileIO()  {
 		
 		Reader fileReader = null;
 		Writer fileWriter = null;
@@ -46,15 +46,31 @@ public class MyIO {
 			 c=fileReader.read();
 			 System.out.println((char)c);
 		}
+		}catch(FileNotFoundException e) {
+			System.out.println("");	
+		}
+		catch(IOException e) {
+		System.out.println("");	
+		}
+	
 		
+	finally{
+		try {
+			fileReader.close();
+			try {
+			fileWriter.close();
+			}catch(ArithmeticException e) {
+				
+			}
+		} catch (IOException e) {
+			
+			e.printStackTrace();
+		}
 		
-		
-	}finally{
-		fileReader.close();
-		fileWriter.close();
+
 		
 	}
-	}
+	
 
 }
-
+}

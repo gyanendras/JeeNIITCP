@@ -8,6 +8,7 @@ public class Abc{
 	protected int j;
 	Abc(){};
 	A a=new A();
+
 	Abc b=new Abc();
 	
 	
@@ -19,6 +20,8 @@ public class Abc{
 
 	public  static void main(String[] args) {
 		Abc x= new Abc();
+		A objA = new A();
+		System.out.println(objA.k);
 		List<?> a = new ArrayList<Float>();
 		List<? extends Number > c = new ArrayList<Float>();
 		Number n= c.get(0) ;
@@ -30,6 +33,7 @@ public class Abc{
 		x.Abc();
 		//boolean j = a instanceof A.class;
 		System.out.println();
+		
 		
 	}
 
