@@ -10,9 +10,11 @@ public class FileHandler {
 	}
 
 	public void countWords(Stream<String> strStream) {
-		//Optional<Long> num = strStream.map((x) -> (1L)).reduce(Math::addExact);
-		Optional<Long> num = strStream.map((x) -> (1L)).reduce((y,z)->Math.addExact(y,z));
+		// Optional<Long> num = strStream.map((x) -> (1L)).reduce(Math::addExact);
+		Optional<Long> num = strStream.map((String x) -> (1L)).reduce((Long y, Long z) -> Math.addExact(y, z));
 		num.ifPresent(System.out::println);
+		//Collectors.toList();
+		
 
 	}
 

@@ -9,14 +9,15 @@ import org.junit.jupiter.api.Test;
 
 import com.first.java8.FileHandler;
 
-class FileHandlerTest {
+public class FileHandlerTest {
 
 	@Test
+	public
 	void testFileDisplay() {
 		FileHandler fh = new FileHandler();
 		Stream<String> strStream;
 		try(Stream<String> strStream1 = Files.lines(Paths.get("words.txt"))) {
-			fh.displayStreamContent(strStream1);
+			fh.displayStreamContent(strStream1.parallel());
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
