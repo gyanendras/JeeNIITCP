@@ -118,12 +118,11 @@ con.commit();
 	
 	public void runPrepStmt() {	
 		String sql = "select * from employees where hire_date between ? and ? ";
-		
-		try(
-				Connection con = getConnection();
-				con.setAutoCommit(false);
-				PreparedStatement ps = con.prepareStatement(sql);
-				) {
+		Connection con = null;
+		try	 {
+			 con = getConnection();
+			con.setAutoCommit(false);
+			PreparedStatement ps = con.prepareStatement(sql);
      		Calendar cal = new GregorianCalendar();
 			cal.set(1978,1,1);
 			
@@ -147,7 +146,12 @@ con.commit();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			con.rollback();
+			try {
+				con.rollback();
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 		}  
 	}
   

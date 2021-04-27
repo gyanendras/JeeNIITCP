@@ -2,7 +2,13 @@ package com.mysystems.domain;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity //duplicate config in xml
 public class Employee  {
+@Id	
 long employee_id;
 String first_name;
 String last_name;

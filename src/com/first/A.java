@@ -13,7 +13,7 @@ public class A {
 		System.out.println("In A instance block");
 	}
 	
-	A(){
+	protected A(){
 		System.out.println("In A default Const");
 	}
 

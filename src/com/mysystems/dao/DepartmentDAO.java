@@ -88,8 +88,11 @@ public class DepartmentDAO {
 		EntityManager em = emFactory.createEntityManager();
 		 em.getTransaction()
 		        .begin();
+		    
 		    em.persist(deptt);
-		    em.getTransaction()
+		  
+		   
+		 em.getTransaction()
 		        .commit();
 		    em.close();
 		    
@@ -227,5 +230,9 @@ public class DepartmentDAO {
 		return results;
 		
 	}
+
+	
+	
+	
 	
 }

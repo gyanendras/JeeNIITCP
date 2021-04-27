@@ -11,9 +11,7 @@ public class AThread extends Thread implements Runnable{
 	public String toString() {
 		return "AThread [abc=" + abc + "]";
 	}
-	catch() {
-		
-	}
+	
 
 	
 }

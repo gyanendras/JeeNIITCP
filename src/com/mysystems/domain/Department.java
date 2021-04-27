@@ -22,7 +22,7 @@ public class Department {
 	@Column(name = "location_id")
 	Integer location_id;
 	
-	
+	@OneToMany
 	@JoinColumn(name = "department_id")
 	List<Employee> employees;
     
